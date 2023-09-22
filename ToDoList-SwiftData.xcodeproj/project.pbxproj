@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		AA8D2E652ABD6A5D0078BF54 /* ToDoList_SwiftDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2E642ABD6A5D0078BF54 /* ToDoList_SwiftDataApp.swift */; };
-		AA8D2E672ABD6A5D0078BF54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2E662ABD6A5D0078BF54 /* ContentView.swift */; };
-		AA8D2E692ABD6A5D0078BF54 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2E682ABD6A5D0078BF54 /* Item.swift */; };
+		AA8D2E672ABD6A5D0078BF54 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2E662ABD6A5D0078BF54 /* ToDoListView.swift */; };
+		AA8D2E692ABD6A5D0078BF54 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2E682ABD6A5D0078BF54 /* ToDo.swift */; };
 		AA8D2E6B2ABD6A5F0078BF54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D2E6A2ABD6A5F0078BF54 /* Assets.xcassets */; };
 		AA8D2E6E2ABD6A5F0078BF54 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D2E6D2ABD6A5F0078BF54 /* Preview Assets.xcassets */; };
+		AA8D2E762ABD6C2E0078BF54 /* ToDoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2E752ABD6C2E0078BF54 /* ToDoDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA8D2E612ABD6A5D0078BF54 /* ToDoList-SwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoList-SwiftData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D2E642ABD6A5D0078BF54 /* ToDoList_SwiftDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_SwiftDataApp.swift; sourceTree = "<group>"; };
-		AA8D2E662ABD6A5D0078BF54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AA8D2E682ABD6A5D0078BF54 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AA8D2E662ABD6A5D0078BF54 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
+		AA8D2E682ABD6A5D0078BF54 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		AA8D2E6A2ABD6A5F0078BF54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA8D2E6D2ABD6A5F0078BF54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA8D2E742ABD6AF00078BF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AA8D2E752ABD6C2E0078BF54 /* ToDoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,9 @@
 			children = (
 				AA8D2E742ABD6AF00078BF54 /* Info.plist */,
 				AA8D2E642ABD6A5D0078BF54 /* ToDoList_SwiftDataApp.swift */,
-				AA8D2E662ABD6A5D0078BF54 /* ContentView.swift */,
-				AA8D2E682ABD6A5D0078BF54 /* Item.swift */,
+				AA8D2E662ABD6A5D0078BF54 /* ToDoListView.swift */,
+				AA8D2E752ABD6C2E0078BF54 /* ToDoDetailView.swift */,
+				AA8D2E682ABD6A5D0078BF54 /* ToDo.swift */,
 				AA8D2E6A2ABD6A5F0078BF54 /* Assets.xcassets */,
 				AA8D2E6C2ABD6A5F0078BF54 /* Preview Content */,
 			);
@@ -142,9 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8D2E672ABD6A5D0078BF54 /* ContentView.swift in Sources */,
-				AA8D2E692ABD6A5D0078BF54 /* Item.swift in Sources */,
+				AA8D2E672ABD6A5D0078BF54 /* ToDoListView.swift in Sources */,
+				AA8D2E692ABD6A5D0078BF54 /* ToDo.swift in Sources */,
 				AA8D2E652ABD6A5D0078BF54 /* ToDoList_SwiftDataApp.swift in Sources */,
+				AA8D2E762ABD6C2E0078BF54 /* ToDoDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
