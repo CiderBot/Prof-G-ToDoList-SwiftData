@@ -10,49 +10,46 @@ import SwiftData
 
 struct ToDoListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [ToDo]
+    @Query private var toDoList: [ToDo]
+    
+    @State private var inAddMode = false
 
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                ForEach(toDoList) { toDo in
+                    HStack {
+                        // check box code will be here
+                        NavigationLink {
+                            ToDoDetailView(toDo: toDo)
+                        } label: {
+                            Text(toDo.item)
+                        }
                     }
+                    .font(.title2)
                 }
-                .onDelete(perform: deleteItems)
             }
+            .navigationTitle("To Do List")
+            .navigationBarTitleDisplayMode(.automatic)
+            .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button {
+                        inAddMode.toggle()
+                    } label: {
+                        Image(systemName: "plus")
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = ToDo(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            .sheet(isPresented: $inAddMode){
+                NavigationStack {
+                    // passing in nil for add mode
+                    ToDoDetailView(toDo: nil)
+                }
             }
         }
     }
+
 }
 
 #Preview {
