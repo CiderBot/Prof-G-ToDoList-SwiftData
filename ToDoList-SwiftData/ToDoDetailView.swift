@@ -10,11 +10,12 @@ import SwiftData
 
 struct ToDoDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) var modelContext
     
     // passing in ToDo, can be nill for new ToDo
     let toDo: ToDo?
     
-    // setting up title and create info
+    // setting up title and create info to be displayed
     private var viewTitle: String { // will be in navigation bar
         toDo == nil ? "Add New To Do" : "Edit To Do"
     }
@@ -70,7 +71,7 @@ struct ToDoDetailView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
                     withAnimation {
-                        //To-Do: add save stuff here
+                        saveToDo()
                         dismiss()
                     }
                 }
@@ -90,8 +91,25 @@ struct ToDoDetailView: View {
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    private func saveToDo() {
+        if let toDo {
+            // update the persistent data with the local private data
+            toDo.item = item
+            toDo.reminderIsOn = reminderIsOn
+            toDo.dueDate = dueDate
+            toDo.notes = notes
+            toDo.isCompleted = isCompleted
+            // not updated timestamp
+        } else {
+            // add new ToDo
+            let newToDo = ToDo(timestamp: Date.now, item: item, reminderIsOn: reminderIsOn, dueDate: dueDate, notes: notes, isCompleted: isCompleted)
+            modelContext.insert(newToDo)
+        }
+    }
 }
 
 #Preview {
     ToDoDetailView(toDo: nil)
+        .modelContainer(for: ToDo.self)
 }

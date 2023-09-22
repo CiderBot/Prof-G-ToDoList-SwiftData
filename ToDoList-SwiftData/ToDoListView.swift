@@ -19,7 +19,10 @@ struct ToDoListView: View {
             List {
                 ForEach(toDoList) { toDo in
                     HStack {
-                        // check box code will be here
+                        Image(systemName: toDo.isCompleted ? "checkmark.rectangle" : "rectangle")
+                            .onTapGesture {
+                                toDo.isCompleted.toggle()
+                            }
                         NavigationLink {
                             ToDoDetailView(toDo: toDo)
                         } label: {
@@ -27,6 +30,11 @@ struct ToDoListView: View {
                         }
                     }
                     .font(.title2)
+                    .swipeActions {
+                        Button("Delete", role: .destructive) {
+                            modelContext.delete(toDo)
+                        }
+                    }
                 }
             }
             .navigationTitle("To Do List")
